@@ -85,7 +85,7 @@ func (r reader) Read(dst []byte) (n int, err error) {
 	ciphertext := make([]byte, len(dst))
 	_, err = io.ReadFull(r.Reader, ciphertext)
 	if err != nil {
-		return 0, fmt.Errorf("Read failed: %v", err)
+		return 0, err
 	}
 
 	// get enough key bytes from the keyStream
